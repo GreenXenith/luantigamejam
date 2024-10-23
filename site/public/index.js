@@ -3,8 +3,8 @@ document.addEventListener("mousemove", event => {
     const banner = document.getElementById("banner");
 
     banner.children[0].style.transform = `translateX(${x * 1}%) translateY(${y * 1}%)`;
-    banner.children[1].style.transform = `translateX(${x * 2}%) translateY(${y * 2}%)`;
-    banner.children[2].style.transform = `translateX(${x * 3}%) translateY(${y * 3}%)`;
+    // banner.children[1].style.transform = `translateX(${x * 2}%) translateY(${y * 2}%)`;
+    // banner.children[2].style.transform = `translateX(${x * 3}%) translateY(${y * 3}%)`;
 });
 
 function updateTimer(timer, remaining) {
