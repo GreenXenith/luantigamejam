@@ -1,161 +1,3 @@
-/* Config */
-:root {
-    --color-1: #91c500;
-    --color-2: rgb(27, 187, 139);
-    --color-3: rgb(0, 156, 104);
-    --color-4: rgb(14, 109, 73);
-    --color-5: rgb(6, 83, 51);
-    --color-6: rgb(1, 61, 21);
-    --color-7: rgb(58, 161, 165);
-
-    --color-link: rgb(255, 169, 147);
-    --color-link-hover: rgb(255, 204, 192);
-
-    --color-main: var(--color-7);
-
-    --sections: 6;
-    --shadow-color: #00000088;
-    --section-shadow: 0 2px 8px var(--shadow-color);
-}
-
-/* Fonts */
-@font-face {
-    src: url("fonts/NotoSans-Regular.ttf");
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    src: url("fonts/NotoSans-Italic.ttf");
-    font-family: "Noto Sans";
-    font-style: italic;
-    font-weight: 400;
-}
-
-@font-face {
-    src: url("fonts/NotoSans-Light.ttf");
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 300;
-}
-
-@font-face {
-    src: url("fonts/NotoSans-LightItalic.ttf");
-    font-family: "Noto Sans";
-    font-style: italic;
-    font-weight: 300;
-}
-
-@font-face {
-    src: url("fonts/NotoSans-Bold.ttf");
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-}
-
-@font-face {
-    src: url("fonts/NotoSans-BoldItalic.ttf");
-    font-family: "Noto Sans";
-    font-style: italic;
-    font-weight: 700;
-}
-
-/* General */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-family: "Noto Sans", Times, sans-serif;
-    font-weight: normal;
-    color: #ffffff;
-}
-
-html, body {
-    scrollbar-color: var(--color-main) transparent;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-    height: 100%; width: 100%;
-    margin: 0; padding: 0;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--color-main);
-}
-
-::-webkit-scrollbar, ::-webkit-scrollbar-track {
-    background: var(--color-main);
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: radial-gradient(circle, #94d3ce, #2d474b 70%);
-    background-attachment: fixed;
-}
-
-#page-container {
-    width: 66%;
-    height: 100%;
-}
-
-nav {
-    box-shadow: var(--section-shadow);
-    padding-inline: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    z-index: calc(var(--sections) + 1);
-    width: 66%;
-    height: 4rem;
-    background-color: var(--color-main);
-    border-bottom: 4px solid rgb(34, 117, 128);
-    font-size: 1.25rem;
-}
-
-nav ul {
-    display: flex;
-    list-style-type: none;
-}
-
-nav ul li a, nav a {
-    padding: 0.25rem 0.5rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    filter: drop-shadow(2px 2px var(--shadow-color));
-}
-
-nav ul li a.important {
-    color: var(--color-1);
-}
-
-nav ul li:hover a, nav a:hover {
-    transform: translateX(-2px) translateY(-2px);
-    filter: drop-shadow(4px 4px 1px var(--shadow-color));
-}
-
-nav a {
-    display: flex;
-    align-items: center;
-}
-
-nav a img {
-    display: inline;
-    height: 2rem;
-    margin-right: 0.5rem;
-}
-
-nav a h2 {
-    font-size: inherit;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
 #about {
     box-shadow: var(--section-shadow);
     font-weight: bold;
@@ -311,6 +153,10 @@ strong {
     z-index: calc(var(--sections) - 6);
 }
 
+#main > *:nth-child(8) {
+    z-index: calc(var(--sections) - 7);
+}
+
 #main > *:nth-child(1)::before {
     background-color: var(--color-1);
 }
@@ -337,6 +183,10 @@ strong {
 
 #main > *:nth-child(7)::before {
     background-color: var(--color-7);
+}
+
+#main > *:nth-child(8)::before {
+    background-color: var(--color-8);
 }
 
 #countdown {
@@ -466,6 +316,33 @@ strong {
     color: var(--color-link-hover);
 }
 
+
+#info-details {
+    display: flex;
+    align-items: center;
+}
+
+
+#info-details .detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4e9e04;
+    padding: 2rem;
+    margin: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 3px 3px var(--shadow-color);
+}
+
+#info-details .detail h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px var(--shadow-color);
+}
+
 #schedule table {
     border-spacing: 0.5rem;
 }
@@ -496,9 +373,9 @@ strong {
 }
 
 #rules blockquote {
-    background-color: var(--color-4);
+    background-color: var(--color-5);
     padding: 0.2rem 0.5rem;
-    border-left: 0.5rem solid var(--color-5);
+    border-left: 0.5rem solid var(--color-6);
     margin: 1.25rem 0 0.5rem;
 }
 
@@ -554,7 +431,7 @@ strong {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-4);
+    background-color: var(--color-5);
     margin-top: 1rem;
     padding: 1rem;
     border-radius: 5px;
