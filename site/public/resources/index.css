@@ -26,14 +26,14 @@ strong {
     font-weight: bold;
 }
 
-ul {
+ul#ideas {
     list-style-type: none;
     display: flex;
     flex-flow: row wrap;
     margin-top: 0.5rem;
 }
 
-ul li {
+ul#ideas li {
     background-color: var(--color-4);
     margin: 0.25rem;
     padding: 0.25rem;
