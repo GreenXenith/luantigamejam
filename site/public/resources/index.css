@@ -10,6 +10,7 @@ h1 {
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 2px 2px var(--shadow-color);
+    margin-top: 0.5rem;
 }
 
 p {
@@ -23,6 +24,24 @@ p strong {
 
 strong {
     font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 0.5rem;
+}
+
+ul li {
+    background-color: var(--color-4);
+    margin: 0.25rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    flex: 1 auto;
+    text-align: center;
+    /* text-shadow: 1px 1px var(--shadow-color); */
+    box-shadow: 3px 3px var(--shadow-color);
 }
 
 #resources {
