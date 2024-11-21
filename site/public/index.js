@@ -20,7 +20,7 @@ function updateTimer(timer, remaining) {
 
 const CDB_URL = "https://content.minetest.net";
 
-window.addEventListener("load", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
     if (document.getElementById("winners")) {
         for (const e of document.getElementsByClassName("package")) {
             const id = e.getAttribute("data-id");
