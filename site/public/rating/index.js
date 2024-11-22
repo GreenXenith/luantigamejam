@@ -5,7 +5,7 @@ const CDB_URL = "https://content.luanti.org";
 const RATING_URL = `${location.protocol}//${location.host}/rating/`;
 const OAUTH_CLIENT_ID = config.oauth_client_id;
 const OAUTH_URL = `${CDB_URL}/oauth/authorize/?response_type=code&client_id=${OAUTH_CLIENT_ID}&redirect_uri=${encodeURIComponent(RATING_URL)}`;
-const JAM_TAG = "jam_game_2021"; // Testing
+const JAM_TAG = "jam_game_2024";
 
 const status_types = {
     wait: "&#x1F504;",
