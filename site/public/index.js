@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const dates = [
         ["until the jam starts", new Date("2024-11-01T00:00Z")],
         ["to work on your games", new Date("2024-11-22T00:00Z")],
-        ["to finish and submit your games", new Date("2024-11-23T00:00Z")],
+        ["to finish and get your game approved", new Date("2024-11-23T00:00Z")],
         [`to <a href="/rating">rank submissions</a>`, new Date("2024-11-30T00:00Z")],
         ["Results soon"],
     ];
