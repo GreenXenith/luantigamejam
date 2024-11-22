@@ -1,6 +1,6 @@
 const config = require("./config.json");
 const CDB_URL = "https://content.luanti.org";
-const JAM_TAG = "jam_game_2021";
+const JAM_TAG = "jam_game_2021"; // Testing
 
 // Logging
 const fs = require("fs");
@@ -45,7 +45,7 @@ const getOrder = (username) => {
     return {order: result.pkg_order.split(","), bestof: JSON.parse(result.bestof || "{}")};
 }
 
-const setOrder = (username, order, bestof) => {    
+const setOrder = (username, order, bestof) => {
     if (!getOrder(username).order) {
         return db_add_order.run({
             user: username,
@@ -69,7 +69,7 @@ const express = require("express");
 const app = express();
 
 app.set("trust proxy", config.trust_proxy || false);
-app.use(require("cors")({exposedHeaders: ["Authorization"]}));
+app.use(require("cors")({exposedHeaders: ["Authorization"], origin: ["http://localhost:8000", "https://jam.luanti.org"]}));
 app.use(require("express-rate-limit").rateLimit({
     limit: config.rate.limit,
     windowMs: config.rate.window * 60 * 1000,
