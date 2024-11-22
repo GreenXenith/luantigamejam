@@ -1,6 +1,6 @@
 const config = require("./config.json");
-const CDB_URL = "https://content.minetest.net";
-const JAM_TAG = "jam_game_2023";
+const CDB_URL = "https://content.luanti.org";
+const JAM_TAG = "jam_game_2021";
 
 // Logging
 const fs = require("fs");
@@ -31,28 +31,32 @@ const server_error = (res, message, error) => {
 const db = require("better-sqlite3")("scores.sqlite");
 db.pragma("journal_mode = WAL");
 
-db.exec("CREATE TABLE IF NOT EXISTS scores (user TEXT UNIQUE PRIMARY KEY NOT NULL, pkg_order TEXT)");
+db.exec("CREATE TABLE IF NOT EXISTS scores (user TEXT UNIQUE PRIMARY KEY NOT NULL, pkg_order TEXT, bestof TEXT)");
 
-const db_add_order = db.prepare("INSERT INTO scores (user, pkg_order) VALUES (@user, @pkg_order)");
-const db_set_order = db.prepare("UPDATE scores SET pkg_order = @pkg_order WHERE user = @user");
-const db_get_order = db.prepare("SELECT pkg_order FROM scores WHERE user = @user");
+const db_add_order = db.prepare("INSERT INTO scores (user, pkg_order, bestof) VALUES (@user, @pkg_order, @bestof)");
+const db_set_order = db.prepare("UPDATE scores SET pkg_order = @pkg_order, bestof = @bestof WHERE user = @user");
+const db_get_order = db.prepare("SELECT pkg_order, bestof FROM scores WHERE user = @user");
 const db_del_order = db.prepare("DELETE FROM scores WHERE user = @user");
 
 const getOrder = (username) => {
     const result = db_get_order.get({user: username});
-    return result ? result.pkg_order.split(",") : null;
+    if (!result) return {order: null, bestof: {}};
+
+    return {order: result.pkg_order.split(","), bestof: JSON.parse(result.bestof || "{}")};
 }
 
-const setOrder = (username, order) => {
-    if (!getOrder(username)) {
+const setOrder = (username, order, bestof) => {    
+    if (!getOrder(username).order) {
         return db_add_order.run({
             user: username,
             pkg_order: order.join(","),
+            bestof: bestof || "",
         }).changes > 0;
     } else {
         return db_set_order.run({
             user: username,
             pkg_order: order.join(","),
+            bestof: bestof || "",
         }).changes > 0;
     }
 }
@@ -105,6 +109,7 @@ const try_fetch = (url, options, tries = 5) => new Promise((resolve, reject) => 
 
 let acceptable_length = 0;
 let maintainers = {};
+const CATEGORIES = ["fun", "inov", "mood", "media"];
 
 try_fetch(`${CDB_URL}/api/packages/?tag=${JAM_TAG}`).then(async res => {
     const list = await res.json();
@@ -169,22 +174,36 @@ app.get("/auth", (req, res) => {
 
 // Route: Fetch package order for user
 app.get("/list", (req, res) => {
-    res.status(200).json({order: getOrder(req.username), maintains: req.username in maintainers ? maintainers[req.username] : []});
+    const order = getOrder(req.username);
+    res.status(200).json({order: order.order, bestof: order.bestof, maintains: req.username in maintainers ? maintainers[req.username] : []});
 });
 
 // Route: Update package order for user
 if (!config.disabled) app.post("/list", (req, res) => {
     const list = req.body.order;
+    const bestof = req.body.bestof;
 
     if (list.length != acceptable_length) {
         log_msg(`Bad list length from ${req.ip} ([${list.toString()}])`);
+        return res.status(409).send("bad length");
+    }
+
+    if (Object.keys(bestof).length > 4) {
+        log_msg(`Bad bestof length from ${req.ip} (${JSON.stringify(bestof)})`);
         return res.status(400).send("bad length");
+    }
+
+    for (const value of Object.keys(bestof)) {
+        if (!CATEGORIES.includes(value)) {
+            log_msg(`Bad bestof key from ${req.ip} (${JSON.stringify(bestof)})`);
+            return res.status(400).send("bad value");
+        }
     }
 
     // TODO: Validate list
 
     try {
-        const success = setOrder(req.username, list);
+        const success = setOrder(req.username, list, JSON.stringify(bestof));
 
         if (success) {
             res.status(200).send("ok");
