@@ -18,7 +18,7 @@ function updateTimer(timer, remaining) {
     timer.innerHTML = (parts[3] > 0 ? `${parts[3]}.` : "") + parts.slice(0, 3).map(v => v.toString().padStart(2, "0")).join(":");
 }
 
-const CDB_URL = "https://content.minetest.net";
+const CDB_URL = "https://content.luanti.org";
 
 document.addEventListener("DOMContentLoaded", async () => {
     if (document.getElementById("winners")) {

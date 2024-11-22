@@ -7,30 +7,38 @@
 
     <title>2024 Luanti GAME JAM Rating</title>
     <link rel="icon" href="https://raw.githubusercontent.com/minetest/minetest.github.io/master/media/icon.svg">
+
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <style>
-        html {
-            height: 100%;
-            margin: 0; padding: 0;
-        }
+    <nav>
+        <a href="/">
+            <img alt="icon" src="https://raw.githubusercontent.com/minetest/minetest.github.io/master/media/icon.svg">
+            LUANTI GAME JAM
+        </a>
+        <div id="clear" class="hidden" title="Clear saved list">&#x1F5D1;&#xFE0F;</div>
+        <a id="login" href="#">Log in with ContentDB</a>
+        <a id="logout" class="hidden" href="">Log Out</a>
+    </nav>
 
-        body {
-            height: 100%;
-            margin: 0; padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle, #94d3ce, #2d474b 70%);
-        }
-        
-        p {
-            font-family: "Noto Sans", Times, sans-serif;
-            font-weight: bold;
-            color: #ffffff;
-            font-size: 2rem;
-            text-shadow: 2px 2px #00000088;
-        }
-    </style>
-    <p>Coming soon...</p>
+    <style>#status {background-color: red;}</style>
+    <span id="status"><span id="info">TESTING MODE</span><span id="status-msg"></span></span>
+    <!-- <span id="status"><span id="info">Log in to save changes.</span><span id="status-msg"></span></span>  -->
+
+    <h2 id="header-most">&#x1f4a1;&#xFE0F; Log In to Sort Packages</h2>
+    <div id="packages"></div>
+    <h2 id="header-least" class="hidden">&#x1F44E;&#xFE0F; Least Favorite</h2>
+
+    <footer>
+        <div>
+            <span>&copy; 2022-2024 <a href="https://www.luanti.org/" target="_blank">The Luanti Team</a></span>
+            <span>Website by <a href="https://www.greenxenith.com/" target="_blank">GreenXenith</a></span>
+            <span><a href="https://forum.luanti.org/viewtopic.php?t=29957" target="_blank">Forum Thread</a></span>
+        </div>
+        <p>This site stores your sorted list and ContentDB username. Your IP may be logged with errors.</p>
+    </footer>
+
+    <script type="module" src="index.js"></script>
 </body>
+</html>
