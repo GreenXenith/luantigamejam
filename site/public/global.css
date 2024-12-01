@@ -15,7 +15,6 @@
     --color-main: var(--color-8);
     --color-secondary: rgb(94, 158, 137);
 
-    --sections: 6;
     --shadow-color: #00000088;
     --section-shadow: 0 2px 8px var(--shadow-color);
 }
