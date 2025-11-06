@@ -60,7 +60,6 @@
 html, body {
     scroll-behavior: smooth;
     box-sizing: border-box;
-    height: 100%; width: 100%;
     margin: 0; padding: 0;
 }
 
@@ -72,8 +71,12 @@ body {
     background-attachment: fixed;
 }
 
-#content {
+.content, #hero {
     width: 50%;
+    margin-top: 3em;
+}
+
+#hero {
     height: auto;
     position: relative;
     display: flex;
@@ -82,7 +85,7 @@ body {
 }
 
 #logo {
-    width: 50%;
+    width: 30%;
     height: auto;
     margin-top: 4em;
     filter: drop-shadow(0px 0px 10px var(--shadow-color));
@@ -90,7 +93,7 @@ body {
 }
 
 #clock {
-    font-size: 5em;
+    font-size: 4em;
     margin-top: 0.25em;
     text-shadow: 0px 0px 10px var(--shadow-color);
 }
@@ -100,4 +103,71 @@ body {
     width: max-content;
     font-size: 1em;
     text-shadow: 1px 1px var(--shadow-color);
+}
+
+a {
+    color: rgb(99, 185, 224);
+}
+
+a:hover {
+    color: rgb(162, 228, 245);;
+}
+
+ul {
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.content {
+    background-color: rgba(43, 43, 43, 0.5);
+    padding: 2em;
+    border-radius: 1em;
+    backdrop-filter: blur(2em)
+}
+
+#details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#details p {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+code {
+    padding: 0rem 0.25rem;
+    background-color: #00000033;
+    border-radius: 2px;
+}
+
+table {
+    margin-top: 3em;
+    border-spacing: 0.5rem;
+}
+
+table th, table td {
+    box-shadow: 3px 3px var(--shadow-color);
+    padding: 0.5rem 1rem;
+}
+
+tr td:first-child {
+    text-align: end;
+}
+
+th {
+    background-color: rgb(34, 34, 34);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 1px 1px var(--shadow-color);
+}
+
+td {
+    background-color: rgb(78, 78, 78);
+}
+
+footer {
+    margin-bottom: 1em;
+    margin-top: 3em;
 }

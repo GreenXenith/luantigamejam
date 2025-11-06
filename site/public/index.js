@@ -1,6 +1,6 @@
 document.addEventListener("mousemove", event => {
     const x = (event.clientX / document.body.clientWidth - 0.5) * 2, y = (event.clientY / document.body.clientHeight - 0.5) * 2;
-    const logo = document.getElementById("content");
+    const logo = document.getElementById("hero");
 
     logo.style.transform = `translateX(${x * 1}%) translateY(${y * 1}%)`;
 });
