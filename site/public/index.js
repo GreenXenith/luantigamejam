@@ -5,6 +5,15 @@ document.addEventListener("mousemove", event => {
     logo.style.transform = `translateX(${x * 1}%) translateY(${y * 1}%)`;
 });
 
+// Dates
+const dates = [
+    ["til theme announcement + jam start", new Date("2025-11-08T00:00Z")],
+    ["to work on your games", new Date("2025-11-29T00:00Z")],
+    ["to finish and get your game approved", new Date("2025-11-30T00:00Z")],
+    [`to <a href="/rating">rank submissions</a>`, new Date("2025-12-08T00:00Z")],
+    ["Results soon"],
+];
+
 function updateTimer(timer, remaining) {
     const parts = [
         Math.floor((remaining % 86400) / 3600),
@@ -14,20 +23,18 @@ function updateTimer(timer, remaining) {
     ];
 
     timer.innerHTML = (parts[3] > 0 ? `${parts[3]}.` : "") + parts.slice(0, 3).map(v => v.toString().padStart(2, "0")).join(":");
+
+    const theme = document.getElementById("theme");
+    if (dates[0][1] > Date.now()) {
+        theme.style = "display: none";
+    } else {
+        theme.style = "";
+    }
 }
 
 const CDB_URL = "https://content.luanti.org";
 
 document.addEventListener("DOMContentLoaded", async () => {
-    // Dates
-    const dates = [
-        ["til theme announcement + jam start", new Date("2025-11-08T00:00Z")],
-        ["to work on your games", new Date("2025-11-29T00:00Z")],
-        ["to finish and get your game approved", new Date("2025-11-30T00:00Z")],
-        [`to <a href="/rating">rank submissions</a>`, new Date("2025-12-08T00:00Z")],
-        ["Results soon"],
-    ];
-
     [...document.getElementsByClassName("date")].forEach(e => {
         const when = e.getAttribute("data-date");
         e.innerHTML = !Date.parse(when) ? "DATE PARSE ERROR" : new Date(when).toLocaleString("en-US", {

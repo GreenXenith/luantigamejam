@@ -76,6 +76,13 @@ body {
     margin-top: 3em;
 }
 
+.content {
+    background-color: rgba(43, 43, 43, 0.5);
+    padding: 2em;
+    border-radius: 1em;
+    backdrop-filter: blur(2em)
+}
+
 #hero {
     height: auto;
     position: relative;
@@ -90,6 +97,30 @@ body {
     margin-top: 4em;
     filter: drop-shadow(0px 0px 10px var(--shadow-color));
     transition: transform 0.2s ease-out;
+}
+
+#theme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ff802b;
+    box-shadow: 5px 5px #cf4712;
+    padding: 2em 5em;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+    
+}
+
+#theme h1 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+#theme p {
+    font-size: 2em;
+    font-weight: bold;
 }
 
 #clock {
@@ -116,13 +147,6 @@ a:hover {
 ul {
     list-style-type: square;
     list-style-position: inside;
-}
-
-.content {
-    background-color: rgba(43, 43, 43, 0.5);
-    padding: 2em;
-    border-radius: 1em;
-    backdrop-filter: blur(2em)
 }
 
 #details {
