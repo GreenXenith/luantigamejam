@@ -3,5 +3,5 @@ export const config = {
     "server_address": "https://backend.greenxenith.com",
     "jam_tag": "jam_game_2025",
     "queue_window": 5, // Time between updates
-    "disabled": true,
+    "disabled": false,
 };

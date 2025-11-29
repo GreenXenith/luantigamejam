@@ -46,24 +46,42 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ff802b;
-    box-shadow: 5px 5px #cf4712;
-    padding: 2em 5em;
+    background-color: #e2a379;
+    box-shadow: 5px 5px #945a43;
+    padding: 1em 3em;
     margin-top: 3em;
     margin-bottom: 1em;
     border-radius: 1em;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
-    
 }
 
 #theme h1 {
-    font-size: 1.5em;
+    font-size: 1em;
     text-transform: uppercase;
 }
 
 #theme p {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
+}
+
+#hero a {
+    background-color: #ff802b;
+    box-shadow: 5px 5px #cf4712;
+    padding: 1em 2em;
+    margin-block: 1rem;
+    border-radius: 1rem;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+#hero a:hover {
+    background-color: #ffd35b;
+    box-shadow: 3px 3px #f7a01f;
+    transform: translate(2px, 2px);
 }
 
 #clock {
