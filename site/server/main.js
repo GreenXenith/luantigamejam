@@ -1,6 +1,6 @@
 const config = require("./config.json");
 const CDB_URL = "https://content.luanti.org";
-const JAM_TAG = "jam_game_2024";
+const JAM_TAG = "jam_game_2025";
 
 // Logging
 const fs = require("fs");
