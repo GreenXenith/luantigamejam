@@ -1,0 +1,65 @@
+/* Fonts */
+@font-face {
+    src: url("fonts/NotoSans-Regular.ttf");
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    src: url("fonts/NotoSans-Italic.ttf");
+    font-family: "Noto Sans";
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    src: url("fonts/NotoSans-Light.ttf");
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    src: url("fonts/NotoSans-LightItalic.ttf");
+    font-family: "Noto Sans";
+    font-style: italic;
+    font-weight: 300;
+}
+
+@font-face {
+    src: url("fonts/NotoSans-Bold.ttf");
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    src: url("fonts/NotoSans-BoldItalic.ttf");
+    font-family: "Noto Sans";
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Noto Sans", Times, sans-serif;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+    font-size: 1em;
+}
+
+body {
+    background: radial-gradient(circle, #5c5c5c, #1b1b1b 95%);
+    background-attachment: fixed;
+}
