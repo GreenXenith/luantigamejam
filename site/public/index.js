@@ -10,7 +10,7 @@ const dates = [
     ["til theme announcement + jam start", new Date("2025-11-08T00:00Z")],
     ["to work on your games", new Date("2025-11-29T00:00Z")],
     ["to finish and get your game approved", new Date("2025-11-30T00:00Z")],
-    [`to rank submissions`, new Date("2025-12-08T00:00Z")],
+    [`to rank submissions`, new Date("2025-12-07T00:00Z")],
     ["Results soon"],
 ];
 
