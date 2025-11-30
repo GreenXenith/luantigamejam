@@ -203,7 +203,7 @@ fetch(`${CDB_URL}/api/packages/?tag=${JAM_TAG}`, {cache: "reload"}).then(res => 
 
         for (const idx in json) {
             const pkg = json[idx];
-            const item = newItem(pkg.title, pkg.thumbnail, `${CDB_URL}/packages/${pkg.author}/${pkg.name}/`, pkg.name);
+            const item = newItem(pkg.title, pkg.thumbnail.replace("thumbnails/1/", "thumbnails/2/"), `${CDB_URL}/packages/${pkg.author}/${pkg.name}/`, pkg.name);
 
             if (!jam_auth_token || config.disabled) {
                 item.classList.add("disabled");
