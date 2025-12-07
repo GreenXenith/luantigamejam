@@ -35,6 +35,18 @@ function updateTimer(timer, remaining) {
 const CDB_URL = "https://content.luanti.org";
 
 document.addEventListener("DOMContentLoaded", async () => {
+    if (document.getElementById("winners")) {
+        for (const e of document.getElementsByClassName("package")) {
+            const id = e.getAttribute("data-id");
+            e.setAttribute("href", `${CDB_URL}/packages/${id}`);
+
+            const res = await fetch(`${CDB_URL}/api/packages/${id}/`);
+            e.children[1].setAttribute("src", (await res.json()).screenshots[0]);
+        };
+
+        return;
+    };
+
     [...document.getElementsByClassName("date")].forEach(e => {
         const when = e.getAttribute("data-date");
         e.innerHTML = !Date.parse(when) ? "DATE PARSE ERROR" : new Date(when).toLocaleString("en-US", {

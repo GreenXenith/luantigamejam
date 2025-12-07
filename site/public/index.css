@@ -65,7 +65,7 @@ body {
     font-weight: bold;
 }
 
-#hero a {
+#hero > a {
     background-color: #ff802b;
     box-shadow: 5px 5px #cf4712;
     padding: 1em 2em;
@@ -78,7 +78,7 @@ body {
     text-decoration: none;
 }
 
-#hero a:hover {
+#hero > a:hover {
     background-color: #ffd35b;
     box-shadow: 3px 3px #f7a01f;
     transform: translate(2px, 2px);
@@ -95,6 +95,84 @@ body {
     width: max-content;
     font-size: 1em;
     text-shadow: 1px 1px var(--shadow-color);
+}
+
+
+#winners {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+#winners > h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-block: 1rem;
+    font-size: 2rem;
+    text-shadow: 2px 2px var(--shadow-color) !important;
+}
+
+#winners div {
+    display: flex;
+    position: relative;
+}
+
+.package {
+    border-radius: 5px;
+    margin: 1rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.package h2 {
+    margin: 0.5rem 1rem;
+    position: absolute;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+.package img {
+    width: 100%;
+    min-height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.package::after {
+    position: absolute;
+    content: attr(data-place);
+    color: white;
+    bottom: 0;
+    right: 0;
+    margin: 0.5rem 1rem;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+.package[data-place="1st"] {
+    --scale: 1.1;
+    transform: scale(var(--scale));
+    margin-left: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.package[data-place="2nd"] {
+    --scale: 1;
+}
+
+.package[data-place="3rd"] {
+    --scale: 0.9;
+    transform: scale(var(--scale));
+}
+
+.package:hover {
+    transform: scale(calc(var(--scale) * 1.1));
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+#winners > a {
+    margin-top: 1rem;
+    text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
 a {
